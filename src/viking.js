@@ -62,7 +62,7 @@ class Saxon extends Soldier {
 
 // War
 class War {
-  constructor (vikingArmy, saxonArmy) {
+  constructor () {
     this.vikingArmy = [];
     this.saxonArmy = [];
   };
@@ -77,22 +77,27 @@ class War {
 
   vikingAttack() {
     const randomSaxon = Math.floor(Math.random() * (this.saxonArmy.length - 1));
-    
-    receiveDamage(Saxon.this.strength) {
-      if (diedInCombat === true) {
-        this.vikingArmy.pop(viking);
-      }
-    }
-  };
-
-  saxonAttack() {
     const randomViking = Math.floor(Math.random() * (this.vikingArmy.length - 1));
     
-    receiveDamage(Viking.this.strength) {
+    this.saxonArmy['randomSaxon'].receiveDamage(this.vikingArmy['randomViking'].strength)
+    
       if (diedInCombat === true) {
-        this.saxonArmy.pop(saxon);
-    }
-  };
+        this.vikingArmy.pop(viking);
+      };
+      
+  }
+
+  saxonAttack() {
+    const randomSaxon = Math.floor(Math.random() * (this.saxonArmy.length - 1));
+    const randomViking = Math.floor(Math.random() * (this.vikingArmy.length - 1));
+    
+    this.vikingArmy['randomViking'].receiveDamage(this.saxonArmy['randomSaxon'].strength)
+    
+      if (diedInCombat === true) {
+        this.vikingArmy.pop(viking);
+      };
+      
+  }
 
   showStatus() {
     if (this.saxonArmy.length === 0) {
